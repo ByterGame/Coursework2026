@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Streaming rPPG - live heart rate</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+  <header class="topbar">
+    <div class="brand">
+      <div class="mark" aria-hidden="true"></div>
+      <div>
+        <div class="title">Streaming rPPG monitor</div>
+        <div class="subtitle">real-time remote photoplethysmography from webcam video</div>
+      </div>
+    </div>
+    <div class="live-badge"><span class="live-dot"></span><span>LIVE ANALYSIS</span></div>
+  </header>
+  <main class="workspace">
+    <div class="video-wrap">
+      <video id="video" autoplay playsinline></video>
+      <canvas id="display"></canvas>
+      <div class="overlay-msg" id="overlay">
+        <button id="start-btn">Start measurement</button>
+      </div>
+    </div>
+    <aside class="info">
+      <div class="section-label">Current estimate</div>
+      <section class="hr-card">
+        <div class="hr-row">
+          <span id="hr-value">--</span>
+          <span id="hr-unit">bpm</span>
+        </div>
+        <div id="status">click Start to begin</div>
+        <div id="detail"></div>
+      </section>
+      <div class="section-label">Signal quality</div>
+      <div class="quality">
+        <span class="pill" id="face-pill">face</span>
+        <span class="pill" id="light-pill">light</span>
+        <span class="pill" id="fps-pill">fps</span>
+        <span class="pill" id="signal-pill">signal</span>
+      </div>
+      <div class="meta-grid">
+        <div class="metric"><b id="buffer-metric">0.0s</b><span>clean buffer</span></div>
+        <div class="metric"><b id="method-metric">POS</b><span>primary method</span></div>
+      </div>
+      <section class="wave-panel">
+        <div class="section-label">Filtered pulse trace</div>
+        <canvas id="waveform"></canvas>
+      </section>
+    </aside>
+  </main>
+</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
